@@ -15,6 +15,7 @@ const blog = {
     id: "621e083c5faf16fac32734a4",
   },
 }
+
 const blogProps = {
   user: {
     token:
@@ -57,7 +58,6 @@ describe("Blog components renders and", () => {
     const btn = screen.getByText("show")
     userEvent.click(btn)
     const likesBtn = container.querySelector(".blog__likes button")
-    screen.debug(likesBtn)
     userEvent.click(likesBtn)
     userEvent.click(likesBtn)
     expect(mockHandler.mock.calls).toHaveLength(2)
