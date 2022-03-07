@@ -19,6 +19,7 @@ const Blogs = ({ blogs, blogProps }) => {
       <Button
         onClick={toggleSort}
         text={toSort ? "Sort chronologically" : "Sort by likes"}
+        name="sort-btn"
       />
       {blogsToDisplay.map(blog => (
         <Blog blogProps={blogProps} key={blog.id} blog={blog} />

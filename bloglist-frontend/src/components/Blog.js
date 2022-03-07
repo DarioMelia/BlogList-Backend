@@ -43,7 +43,7 @@ const Blog = ({ blog, blogProps }) => {
   )
 
   return (
-    <div>
+    <div className="blog-item">
       {blog.title}{" "}
       <Button onClick={expandBlog} text={showInfo ? "hide" : "show"} name="toggle-info" />
       {showInfo ? blogInfo : ""}
