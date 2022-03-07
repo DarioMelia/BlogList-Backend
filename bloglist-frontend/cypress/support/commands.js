@@ -5,3 +5,8 @@ Cypress.Commands.add("resetDB", () => {
 Cypress.Commands.add("newUser", user => {
   cy.request("POST", "http://localhost:5412/api/users", user)
 })
+Cypress.Commands.add("loginWithUI", (username, password) => {
+  cy.get("input[name='username']").type(username)
+  cy.get("input[name='password']").type(password)
+  cy.contains("login").click()
+})
