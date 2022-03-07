@@ -23,7 +23,7 @@ const Blog = ({ blog, blogProps }) => {
   }
 
   const blogInfo = (
-    <div style={infoStyle}>
+    <div className="blog__info" style={infoStyle}>
       <hr></hr>
       <p className="blog__link">
         <a href={blog.url}>Link to blog</a>

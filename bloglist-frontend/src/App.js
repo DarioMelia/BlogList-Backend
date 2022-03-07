@@ -102,7 +102,7 @@ const App = () => {
     return (
       <>
         {user.username} logged in{" "}
-        <Button onClick={logOut} text="logout"></Button>
+        <Button onClick={logOut} text="logout" name="logout"></Button>
         <br></br>
         <Togglable btnLabel="New blog" ref={blogFormRef}>
           <NewBlogForm createBlog={createBlog}></NewBlogForm>

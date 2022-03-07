@@ -42,5 +42,23 @@ describe("Blog app", function () {
       cy.get("button[name='likes']").click()
       cy.get(".blog__likes").should("contain","1")
     })
+    it("the user creator of the entrie is able to delete it",function () {
+      cy.newBlog(blog)
+      cy.get("button[name='toggle-info']").click()
+      cy.get("button[name='del']").click()
+      cy.get(".blog-display").contains(blog.title).should("not.exist")
+    })
+    it("a user can't delete and entrie that isn't his",function () {
+      cy.newBlog(blog)
+      cy.get("button[name='logout']").click()
+      cy.newUser({
+        username: "test",
+        name: "Test Test",
+        password: "test",
+      })
+      cy.loginWithUI("test","test")
+      cy.get("button[name='toggle-info']").click()
+      cy.get(".blog__info").should("not.contain","Remove")
+    })
   })
 })
