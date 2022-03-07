@@ -26,13 +26,21 @@ describe("Blog app", function () {
     beforeEach(function () {
       cy.loginWithUI("user", "user")
     })
+    const blog = {
+      title: "Blog Title",
+      author: "Blog Author",
+      url: "http//SomeUrl.com",
+    }
     it("a blog can be created", function () {
-      cy.contains("New blog").click()
-      cy.get("input[name='title']").type("Blog title")
-      cy.get("input[name='author']").type("Blog author")
-      cy.get("input[name='url'").type("someUrl.com")
-      cy.contains("Add blog").click()
-      cy.get(".blog-display").should("contain", "Blog title")
+      cy.newBlog(blog)
+      cy.get(".blog-display").should("contain", blog.title)
+    })
+    it("pressing like button works properly", function () {
+      cy.newBlog(blog)
+      cy.get("button[name='toggle-info']").click()
+      cy.get(".blog__likes").should("contain","0")
+      cy.get("button[name='likes']").click()
+      cy.get(".blog__likes").should("contain","1")
     })
   })
 })

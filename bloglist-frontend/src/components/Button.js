@@ -1,7 +1,7 @@
 import React from "react"
-const Button = ({ onClick, text, type }) => {
+const Button = ({ onClick, text, type,name }) => {
   let delBtnStyles = {}
-  if (type === "del") {
+  if (name === "del") {
     delBtnStyles = {
       color: "white",
       backgroundColor: "red",
@@ -10,8 +10,9 @@ const Button = ({ onClick, text, type }) => {
       cursor: "pointer",
     }
   }
+
   return (
-    <button style={delBtnStyles} type={type} onClick={onClick}>
+    <button name={name} style={delBtnStyles} type={type} onClick={onClick}>
       {text}
     </button>
   )

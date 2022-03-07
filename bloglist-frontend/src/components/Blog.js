@@ -30,11 +30,11 @@ const Blog = ({ blog, blogProps }) => {
         <br></br>
       </p>
       <p className="blog__likes">
-        likes {blog.likes} <Button onClick={addLike} text="👍" />
+        likes {blog.likes} <Button onClick={addLike} text="👍" name="likes" />
       </p>
       <p className="blog__author">{blog.author}</p>
       {user.username === blog.user.username ? (
-        <Button onClick={delBlog} text="Remove" type="del" />
+        <Button onClick={delBlog} text="Remove" name="del" />
       ) : (
         ""
       )}
@@ -45,7 +45,7 @@ const Blog = ({ blog, blogProps }) => {
   return (
     <div>
       {blog.title}{" "}
-      <Button onClick={expandBlog} text={showInfo ? "hide" : "show"} />
+      <Button onClick={expandBlog} text={showInfo ? "hide" : "show"} name="toggle-info" />
       {showInfo ? blogInfo : ""}
     </div>
   )
