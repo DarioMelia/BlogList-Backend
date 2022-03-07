@@ -15,7 +15,7 @@ const Blogs = ({ blogs, blogProps }) => {
 
   toSort ? (blogsToDisplay = sortedBlogs) : (blogsToDisplay = blogs)
   return (
-    <div>
+    <div className="blog-display">
       <Button
         onClick={toggleSort}
         text={toSort ? "Sort chronologically" : "Sort by likes"}
