@@ -32,7 +32,7 @@ const LogInForm = ({ logIn }) => {
   }
 
   return (
-    <form onSubmit={handleLogIn}>
+    <form className="login-form" onSubmit={handleLogIn}>
       <div>
         username:
         <input

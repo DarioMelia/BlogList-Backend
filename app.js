@@ -2,6 +2,7 @@ const {DB_URL}=require("./utils/config"),
     express = require("express"),
     app = express(),
     apiRoutes = require("./routes/api/apiRoutes"),
+    testingRouter = require("./routes/testing/testRoutes"),
     middleware = require("./utils/middleware"),
     mongoose = require("mongoose")
     lg = require("./utils/logger")
@@ -14,6 +15,10 @@ app.use(middleware.requestLogger)
 app.use(middleware.tokenExtractor)
 
 app.use("/api",apiRoutes)
+
+if (process.env.NODE_ENV === "test") {
+  app.use("/api/testing", testingRouter)
+}
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

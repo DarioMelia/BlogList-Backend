@@ -68,9 +68,6 @@ exports.findOne = async(params,collection)=>{
     return await Item.findOne(params)
 }
 
-async function randomUserId(){
-    const users = await User.find({})
-    const randomUserId = users[Math.floor(Math.random() * users.length)]._id.toString()
-    return randomUserId
-}
+
+
 
