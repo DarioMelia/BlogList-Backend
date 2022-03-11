@@ -1,5 +1,3 @@
-
-
 describe("Blog app", function () {
   beforeEach(function () {
     cy.resetDB()
@@ -76,7 +74,7 @@ describe("Blog app", function () {
       cy.get(".blog-display").contains("4").get("button[name='likes']").click()
       cy.get("button[name='sort-btn']").click()
       cy.get(".blog-item").then($blogs => {
-        console.log($blogs[0].innerText.slice(0,1))
+        cy.get(".blog-item").contains($blogs[0].innerText.slice(0, 1)).should("contain", "4")
       })
     })
   })
